@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 open class BaseViewHolder<in T>(parent: ViewGroup, @LayoutRes layoutId: Int) :
     RecyclerView.ViewHolder(parent.inflater(layoutId)) {
 
-    open fun bindData(data: T) {}
-    open fun bindHeader(data: T) {}
-    open fun bindWithHeader(data: T) {}
+    fun clearAnimation() {
+        itemView.clearAnimation()
+    }
 }
