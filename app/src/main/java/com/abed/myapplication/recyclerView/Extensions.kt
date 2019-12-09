@@ -11,9 +11,9 @@ import com.abed.myapplication.R
 
 fun <T : Any> RecyclerView.withSimpleAdapter(
     dataList: List<T>, @LayoutRes layoutID: Int, @AnimRes animationRes: Int = R.anim.item_animation_from_bottom,
-    onBindView: (holder: BaseViewHolder<T>, data: T, position: Int) -> Unit
+    onBindView: BaseViewHolder<T>.(data: T) -> Unit
 ): SimpleRecyclerAdapter<T> {
-    val recyclerAdapter = SimpleRecyclerAdapter(dataList, layoutID,animationRes, onBindView)
+    val recyclerAdapter = SimpleRecyclerAdapter(dataList, layoutID, animationRes, onBindView)
     adapter = recyclerAdapter
     return recyclerAdapter
 }

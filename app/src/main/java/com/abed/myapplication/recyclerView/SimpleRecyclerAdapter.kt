@@ -7,16 +7,16 @@ import androidx.annotation.LayoutRes
 class SimpleRecyclerAdapter<RecyclerData : Any>(
     data: List<RecyclerData>, @LayoutRes layoutID: Int,
     private val animationRes: Int = -1,
-    private val onBindView: (holder: BaseViewHolder<RecyclerData>, data: RecyclerData, position: Int) -> Unit
+    private val onBindView: BaseViewHolder<RecyclerData>.(data: RecyclerData) -> Unit
 ) : BaseRecyclerAdapter<RecyclerData>(data) {
 
     override val layoutItemId: Int = layoutID
 
     override fun onBindViewHolder(holder: BaseViewHolder<RecyclerData>, position: Int) {
-        val data = dataList[position]
-        onBindView(holder, data, position)
+        holder.onBindView(dataList[position])
+
         if (animationRes != -1)
-            holder.itemView.setAnimation( position)
+            holder.itemView.setAnimation(position)
     }
 
     private var lastPosition = -1

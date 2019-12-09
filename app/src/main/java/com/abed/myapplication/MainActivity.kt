@@ -22,10 +22,9 @@ class MainActivity : AppCompatActivity() {
         )
 
 
-        recipes_recycler.withSimpleAdapter(dummyData, R.layout.item_recipe) { holder, data, _ ->
-            val v = holder.itemView
-            v.recipe_img.setImageResource(data.drawable)
-            v.recipe_name.text = data.name
+        recipes_recycler.withSimpleAdapter(dummyData, R.layout.item_recipe) {data ->
+            itemView.recipe_img.setImageResource(data.drawable)
+            itemView.recipe_name.text = data.name
         }
     }
 }
