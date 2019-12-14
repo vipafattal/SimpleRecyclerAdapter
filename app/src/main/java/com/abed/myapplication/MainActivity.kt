@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.abed.myapplication.recyclerView.withSimpleAdapter
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.item_recipe.view.*
+import kotlinx.android.synthetic.main.item_recipe.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
         )
 
 
-        recipes_recycler.withSimpleAdapter(dummyData, R.layout.item_recipe) {data ->
-            itemView.recipe_img.setImageResource(data.drawable)
-            itemView.recipe_name.text = data.name
+        recyclerView.withSimpleAdapter(dummyData, R.layout.item_recipe) { data ->
+            recipe_img.setImageResource(data.drawable)
+            recipe_name.text = data.name
         }
     }
 }
